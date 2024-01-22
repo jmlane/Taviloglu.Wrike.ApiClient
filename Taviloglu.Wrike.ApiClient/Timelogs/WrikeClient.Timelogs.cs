@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Taviloglu.Wrike.Core;
@@ -38,7 +38,7 @@ namespace Taviloglu.Wrike.ApiClient
             return GetReponseDataFirstItem(response);
         }
 
-        async Task<WrikeTimelog> IWrikeTimelogsClient.UpdateAsync(WrikeClientIdParameter id, string comment, int? hours, DateTime? trackedDate, bool? plainText, string categoryId)
+        async Task<WrikeTimelog> IWrikeTimelogsClient.UpdateAsync(WrikeClientIdParameter id, string comment, decimal? hours, DateTime? trackedDate, bool? plainText, string categoryId)
         {
             var contentBuilder = new WrikeFormUrlEncodedContentBuilder()
                .AddParameter("comment", comment)

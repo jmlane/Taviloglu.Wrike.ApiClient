@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Taviloglu.Wrike.Core;
@@ -31,7 +31,7 @@ namespace Taviloglu.Wrike.ApiClient
         /// <param name="plainText">Get comment text as plain text, HTML otherwise</param>
         /// <param name="categoryId">Timelog category</param>
         /// See <see href="https://developers.wrike.com/documentation/api/methods/modify-timelog"/>
-        Task<WrikeTimelog> UpdateAsync(WrikeClientIdParameter id, string comment = null, int? hours = null, DateTime? trackedDate = null, bool? plainText = null, string categoryId = null);
+        Task<WrikeTimelog> UpdateAsync(WrikeClientIdParameter id, string comment = null, decimal? hours = null, DateTime? trackedDate = null, bool? plainText = null, string categoryId = null);
 
         /// <summary>
         /// Delete Timelog record by ID
