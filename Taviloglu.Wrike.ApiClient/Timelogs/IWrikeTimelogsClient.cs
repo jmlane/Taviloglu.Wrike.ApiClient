@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Taviloglu.Wrike.Core;
@@ -17,8 +17,9 @@ namespace Taviloglu.Wrike.ApiClient
         /// </summary>
         /// <param name="newTimeLog"></param>
         /// <param name="plainText">Get comment text as plain text, HTML otherwise</param>
+        /// <param name="onBehalfOf">Create a time entry for another user</param>
         /// See <see href="https://developers.wrike.com/documentation/api/methods/create-timelog"/>
-        Task<WrikeTimelog> CreateAsync(WrikeTimelog newTimeLog, bool? plainText = null);
+        Task<WrikeTimelog> CreateAsync(WrikeTimelog newTimeLog, bool? plainText = null, string onBehalfOf = null);
 
         /// <summary>
         /// Update timelog by Id

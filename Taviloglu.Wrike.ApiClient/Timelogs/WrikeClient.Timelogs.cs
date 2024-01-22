@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Taviloglu.Wrike.Core;
@@ -17,7 +17,7 @@ namespace Taviloglu.Wrike.ApiClient
             }
         }
 
-        async Task<WrikeTimelog> IWrikeTimelogsClient.CreateAsync(WrikeTimelog newTimelog, bool? plainText)
+        async Task<WrikeTimelog> IWrikeTimelogsClient.CreateAsync(WrikeTimelog newTimelog, bool? plainText, string onBehalfOf)
         {
             if (newTimelog == null)
             {
@@ -31,7 +31,8 @@ namespace Taviloglu.Wrike.ApiClient
                 .AddParameter("hours", newTimelog.Hours)
                 .AddParameter("trackedDate", newTimelog.TrackedDate.ToString("yyyy-MM-dd"))
                 .AddParameter("plainText", plainText)
-                .AddParameter("categoryId", newTimelog.CategoryId);
+                .AddParameter("categoryId", newTimelog.CategoryId)
+                .AddParameter("onBehalfOf", onBehalfOf);
 
             var postContent = postDataBuilder.GetContent();
             var response = await SendRequest<WrikeTimelog>(requestUri, HttpMethods.Post, postContent).ConfigureAwait(false);
